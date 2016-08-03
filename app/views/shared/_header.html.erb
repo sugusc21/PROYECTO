@@ -1,14 +1,19 @@
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
-	<h1 style = "font-size:20px"><a href="#">Swoptcha</a></h1>
+	<h1 style = "font-size:20px"><a href="<%= pages_index_path %>">Swoptcha</a></h1>
 	<nav id="nav">
 		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li><a href="left-sidebar.html">Quiénes Somos</a></li>
-			<li><a href="right-sidebar.html">Productos</a></li>
-			<!--<li><a href="no-sidebar.html">No Sidebar</a></li>-->
-			<li><a href="https://www.changeersolutions.com/" class="button special" style="background-color: #88C043">Ingresar</a></li>
-			<li><a href="#" class="button special">Registrarse</a></li>
+			<% if user_signed_in?  %>
+		        <li><a href="#">Hola <%= current_user.try(:email) %></a></li>
+		        <li><a href="<%= destroy_user_session_path %>" data-method="Delete">Salir</a></li>
+	        <% else %>
+				<li><a href="<%= pages_index_path %>">Home</a></li>
+				<li><a href="left-sidebar.html">Quiénes Somos</a></li>
+				<li><a href="right-sidebar.html">Productos</a></li>
+				<!--<li><a href="no-sidebar.html">No Sidebar</a></li>-->
+				<li><a href="<%= new_user_session_path %>" class="button special" style="background-color: #88C043">Ingresar</a></li>
+				<li><a href="<%= new_user_registration_path %>" class="button special">Registrarse</a></li>
+		 <% end  %>
 		</ul>
 	</nav>
 </header>
