@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+<p>
+  <strong>Empresa:</strong>
+  <%= @mainproject.company %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @mainproject.name %>
+</p>
+
+<p>
+  <strong>Creado por:</strong>
+  <%= @mainproject.user.email %>
+</p>
+
+<%= link_to 'Editar', edit_mainproject_path(@mainproject) %> |
+<%= link_to 'Atrás', mainprojects_path %>
+	
+</div>

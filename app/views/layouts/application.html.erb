@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body id="top">
+<body id="top" class="<%= params[:controller]%>">
 <%= render "shared/notice" %>
 <%= render "shared/header" %>
 

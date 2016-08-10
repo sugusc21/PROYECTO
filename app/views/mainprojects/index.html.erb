@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+
+<h1>Listado de Proyectos</h1>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Empresa</th>
+      <th>Nombre del Proyecto</th>
+      <th>Creado por:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mainprojects.each do |mainproject| %>
+      <tr>
+        <td><%= mainproject.company %></td>
+        <td><%= mainproject.name %></td>
+        <td><%= mainproject.user.email %></td>
+        <td><%= link_to 'Mostrar', mainproject %></td>
+        <td><%= link_to 'Editar', edit_mainproject_path(mainproject) %></td>
+        <td><%= link_to 'Borrar', mainproject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Proyecto', new_mainproject_path %>
+
+</div>
