@@ -1,22 +1,80 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
 
-<div class="container">
-<p>
+  <br>
+
+<div class="container-fluid">
+<div class='square-content'>
+<p style="text-align:center; margin:0 0 0.5em 0; font-size:x-large">
   <strong>Empresa:</strong>
   <%= @mainproject.company %>
 </p>
 
-<p>
+<p style="margin:0 0 0.5em 0">
   <strong>Nombre:</strong>
   <%= @mainproject.name %>
 </p>
 
-<p>
+<p style="margin:0 0 0.5em 0">
   <strong>Creado por:</strong>
   <%= @mainproject.user.email %>
 </p>
 
-<%= link_to 'Editar', edit_mainproject_path(@mainproject) %> |
-<%= link_to 'Atrás', mainprojects_path %>
+<div class="edition">
+<%= link_to 'Editar', edit_mainproject_path(@mainproject), :style=>'color:#FFA500;' %> |
+<td><%= link_to 'Borrar', @mainproject, method: :delete, data: { confirm: '¿Estás seguro de querer borrar el proyecto?' }, :style=>'color:#FFA500;' %></td> |
+<%= link_to 'Atrás', mainprojects_path, :style=>'color:#FFA500;' %>
 	
+		</div>
+	</div>
 </div>
+
+  </div>
+
+
+   <div class="col-md-12">
+<br>
+  <div class="container-fluid">
+  
+  <img style="width: 100%" src="<%= asset_path('contactus.jpg')  %>" />
+   </div>
+   </div>
+
+<!-- Three 
+  <div class="col-md-8">
+  <div class="container-fluid">
+  <img class="soccphot" src="<%= asset_path('mountain.jpg')  %>" />
+   </div>
+   </div>
+   -->
+   
+ 
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+ <div class="container-fluid">
+<button data-toggle="tooltip" title="Se ingresan los hitos del proyecto como input para el resto de los componentes" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Proyectos</button>	
+</div>
+</div>
+
+  <div class="col-md-4" style="padding-left:0px">
+  <div class="container-fluid">
+<button data-toggle="tooltip" title="Se crean las campañas y mensajes para cada hito del proyecto. Permite enviar los mensajes a los destinatarios desde la plataforma" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Comunicaciones</button>  
+</div>
+</div>
+
+  <div class="col-md-4" style="padding-left:0px">
+  <div class="container-fluid">
+<button data-toggle="tooltip" title="Se gestiona el involucramiento de los roles claves de la organización. Se caracteriza a las personas claves determinando sus necesidades de comunicación." id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Stakeholders</button>  
+
+</div>
+</div>
+  </div>
+
+  <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>	
+  

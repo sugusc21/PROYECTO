@@ -6,6 +6,7 @@
 			<% if user_signed_in?  %>
 		        <li><a href="#">Hola <%= current_user.try(:email) %></a></li>
 		        <li><a href="<%= destroy_user_session_path %>" data-method="Delete">Salir</a></li>
+		        <li><a href="<%= mainprojects_path %>">Proyectos</a></li>
 	        <% else %>
 				<li><a href="<%= pages_index_path %>">Home</a></li>
 				<li><a href="left-sidebar.html">Quiénes Somos</a></li>

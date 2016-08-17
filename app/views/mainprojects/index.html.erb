@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<br>
 
 <div class="container">
 
@@ -16,16 +16,18 @@
   </thead>
 
   <tbody>
+    
     <% @mainprojects.each do |mainproject| %>
+     
       <tr>
         <td><%= mainproject.company %></td>
         <td><%= mainproject.name %></td>
         <td><%= mainproject.user.email %></td>
-        <td><%= link_to 'Mostrar', mainproject %></td>
-        <td><%= link_to 'Editar', edit_mainproject_path(mainproject) %></td>
-        <td><%= link_to 'Borrar', mainproject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to mainproject, class: "btn btn-primary active" do %><span class="glyphicon glyphicon-search"></span>  Ingresar<% end %></td>
       </tr>
+    
     <% end %>
+  
   </tbody>
 </table>
 

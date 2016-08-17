@@ -57,7 +57,7 @@ class MainprojectsController < ApplicationController
   def destroy
     @mainproject.destroy
     respond_to do |format|
-      format.html { redirect_to mainprojects_url, notice: 'Mainproject was successfully destroyed.' }
+      format.html { redirect_to mainprojects_url, notice: 'El proyecto ha sido borrado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
