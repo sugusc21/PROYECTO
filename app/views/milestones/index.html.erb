@@ -1,0 +1,39 @@
+<br>
+
+<div class="container">
+
+<h2>Hitos del Proyecto</h2>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripción</th>
+      <th>Tipo</th>
+      <th>Fecha Fin</th>
+      <th>Proyecto</th>
+      <th>Creado por:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @milestones.each do |milestone| %>
+      <tr>
+        <td><%= milestone.milestone %></td>
+        <td><%= milestone.projtype %></td>
+        <td><%= milestone.duedate %></td>
+        <td><%= milestone.mainproject.try(:name) %></td>
+        <td><%= milestone.user.try(:email) %></td>
+        <td><%= link_to 'Show', mainproject_milestone_path(@mainproject, milestone) %></td>
+        <td><%= link_to 'Edit', edit_mainproject_milestone_path(:mainproject_id=> @mainproject.id, :id=>milestone.id) %></td>
+        <td><%= link_to 'Destroy', mainproject_milestone_path(@mainproject, milestone), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Hito', new_mainproject_milestone_path %>
+</div>

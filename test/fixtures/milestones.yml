@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  milestone: MyString
+  type: 
+  duedate: 2016-08-17
+  mainprojects_id: 
+  users_id: 
+
+two:
+  milestone: MyString
+  type: 
+  duedate: 2016-08-17
+  mainprojects_id: 
+  users_id: 

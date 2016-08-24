@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-12">
 
@@ -11,7 +12,7 @@
 </p>
 
 <p style="margin:0 0 0.5em 0">
-  <strong>Nombre:</strong>
+  <strong>Proyecto:</strong>
   <%= @mainproject.name %>
 </p>
 
@@ -21,9 +22,9 @@
 </p>
 
 <div class="edition">
-<%= link_to 'Editar', edit_mainproject_path(@mainproject), :style=>'color:#FFA500;' %> |
-<td><%= link_to 'Borrar', @mainproject, method: :delete, data: { confirm: '¿Estás seguro de querer borrar el proyecto?' }, :style=>'color:#FFA500;' %></td> |
-<%= link_to 'Atrás', mainprojects_path, :style=>'color:#FFA500;' %>
+<%= link_to 'Editar |', edit_mainproject_path(@mainproject), :style=>'color:#454C53;' %> 
+<td><%= link_to 'Borrar |', @mainproject, method: :delete, data: { confirm: '¿Estás seguro de querer borrar el proyecto?' }, :style=>'color:#454C53;' %></td> 
+<%= link_to 'Atrás', mainprojects_path, :style=>'color:#454C53;' %>
 	
 		</div>
 	</div>
@@ -36,7 +37,7 @@
 <br>
   <div class="container-fluid">
   
-  <img style="width: 100%" src="<%= asset_path('contactus.jpg')  %>" />
+  <img style="width: 100%; filter: grayscale(90%); -webkit-filter: grayscale(50%)" src="<%= asset_path('globe2.jpg')  %>" />
    </div>
    </div>
 
@@ -54,21 +55,28 @@
 <div class="row">
   <div class="col-md-4">
  <div class="container-fluid">
-<button data-toggle="tooltip" title="Se ingresan los hitos del proyecto como input para el resto de los componentes" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Proyectos</button>	
+<a href="<%= mainproject_milestones_path(@mainproject) %>" data-toggle="tooltip" title="Se ingresan los hitos del proyecto como input para el resto de los componentes" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Proyectos</a>	
 </div>
 </div>
 
   <div class="col-md-4" style="padding-left:0px">
   <div class="container-fluid">
-<button data-toggle="tooltip" title="Se crean las campañas y mensajes para cada hito del proyecto. Permite enviar los mensajes a los destinatarios desde la plataforma" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Comunicaciones</button>  
+<a data-toggle="tooltip" title="Se crean las campañas y mensajes para cada hito del proyecto. Permite enviar los mensajes a los destinatarios desde la plataforma" id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Comunicaciones</a>  
 </div>
 </div>
 
   <div class="col-md-4" style="padding-left:0px">
   <div class="container-fluid">
-<button data-toggle="tooltip" title="Se gestiona el involucramiento de los roles claves de la organización. Se caracteriza a las personas claves determinando sus necesidades de comunicación." id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Stakeholders</button>  
+<a data-toggle="tooltip" title="Se gestiona el involucramiento de los roles claves de la organización. Se caracteriza a las personas claves determinando sus necesidades de comunicación." id= "boton" type="button" class="btn btn-primary btn-lg btn-block">Gestión de Stakeholders</a>  
 
-</div>
-</div>
+    </div>
   </div>
+</div>
+</div>
+
+  <script>
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+    });
+  </script>
   

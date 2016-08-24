@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :mainprojects
+  resources :mainprojects do
+    resources :milestones
+  end
   devise_for :users, controllers: {
     sessions: 'user/sessions',
     registrations: 'user/registrations'

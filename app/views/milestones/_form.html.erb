@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-4">
+<h4 style="color:#4682B4; font-weight: bold">Ingresar hito manual</h4>
+<%= form_for([@mainproject, @milestone]) do |f| %>
+  <% if @milestone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@milestone.errors.count, "error") %> prohibited this milestone from being saved:</h2>
+
+      <ul>
+      <% @milestone.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Hito, :style=>"margin:0px" %><br>
+    <%= f.text_field :milestone %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :Tipo, :style=>"margin:0px" %><br>
+    <%= f.text_field :projtype %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :Fecha_Fin, :style=>"margin:0px" %><br>
+    <%= f.text_field :duedate, data: {provide:"datepicker"} %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Guardar Hito" %>
+  </div>
+  </div>
+  <div class="col-md-4">
+  <div style="padding: 70px 0; text-align:left">
+  <p>1) Ingresar el hito manualmente a la izquierda completando la descripción del hito, el tipo del hito, y la fecha de finalización</p>
+  <p>ó</p>
+  <p>2) Ingresar el archivo .mpp (project) a la derecha de manera de obtener los hitos (junto con su fecha de finalización) de forma automática</p>
+  </div>
+  </div>
+  <div class="col-md-4">
+  <h4 style="color:#4682B4; font-weight: bold">Ingresar hito automático</h4>
+  <div class="field">
+    <%= f.label :Adjuntar_archivo, :style=>"margin:0px" %><br>
+    <%= f.file_field :attachment %>
+    <br>
+    <div class="actions">
+    <%= f.submit "Guardar Hito" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+

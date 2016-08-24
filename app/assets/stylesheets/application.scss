@@ -10,8 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-  
+ *= require bootstrap-datepicker3
  *= require_self
 
  */
+
+body{
+	padding-top:70px;
+}
+
+body.pages {
+	padding-top:0px;
+}
+
+#skel-layers-wrapper {
+	
+	padding-top:0px!important;
+}
 

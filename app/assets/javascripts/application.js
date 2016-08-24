@@ -17,5 +17,6 @@
 //= require skel.min
 //= require skel-layers.min
 //= require init
+//= require bootstrap-datepicker
 
 //= require_tree .
