@@ -18,7 +18,7 @@
 
 <p style="margin:0 0 0.5em 0">
   <strong>Creado por:</strong>
-  <%= @mainproject.user.email %>
+  <%= @mainproject.user.try(:email)  %>
 </p>
 
 <div class="edition">

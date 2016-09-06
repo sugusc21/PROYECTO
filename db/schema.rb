@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823005851) do
+ActiveRecord::Schema.define(version: 20160831002340) do
 
   create_table "mainprojects", force: :cascade do |t|
     t.string   "company"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160823005851) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "attachment"
   end
 
   add_index "mainprojects", ["user_id"], name: "index_mainprojects_on_user_id"

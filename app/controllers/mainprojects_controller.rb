@@ -62,6 +62,27 @@ class MainprojectsController < ApplicationController
     end
   end
 
+
+  def process_milestones
+    @mainproject = Mainproject.find(params[:id])
+    @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url) 
+
+  end
+
+  def preview_milestones
+    @mainproject = Mainproject.find(params[:id])
+    @mainproject.attachment = mainproject_params[:attachment]
+    @mainproject.save
+    @mainproject = Mainproject.find(params[:id])
+    @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url)
+    # @mpxj_mil = @mpxj.all_tasks.each.where(duration: "0")
+    # @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url)
+    # @mpxj.each do |milestone|
+    # Mainproject.milestones.build(name: milestone["name"])
+    # end
+    # @mainproject.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mainproject
@@ -70,6 +91,6 @@ class MainprojectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mainproject_params
-      params.require(:mainproject).permit(:company, :name, :user_id)
+      params.require(:mainproject).permit(:company, :name, :user_id, :attachment)
     end
 end

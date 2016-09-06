@@ -22,7 +22,7 @@
       <tr>
         <td><%= mainproject.company %></td>
         <td><%= mainproject.name %></td>
-        <td><%= mainproject.user.email %></td>
+        <td><%= mainproject.user.try(:email) %></td>
         <td><%= link_to mainproject, class: "btn btn-primary active" do %><span class="glyphicon glyphicon-search"></span>  Ingresar<% end %></td>
       </tr>
     

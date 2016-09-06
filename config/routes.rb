@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
   resources :mainprojects do
     resources :milestones
+
+    member do 
+      post 'preview_milestones'
+      post 'process_milestones'
+    end
   end
+
   devise_for :users, controllers: {
     sessions: 'user/sessions',
     registrations: 'user/registrations'
@@ -11,6 +18,8 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/product'
+
+  get 'projectmil' => 'milestones#projectmil'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

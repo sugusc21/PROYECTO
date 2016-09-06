@@ -1,0 +1,35 @@
+ <%= "Existen #{@mpxj.all_tasks.size} tareas y #{@mpxj.all_resources.size} recursos en este proyecto" %>
+
+ 
+ <br>
+ <br>
+ <%= "Se identificaron los siguientes hitos:" %>
+
+ <br>
+ <br>
+ 
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha Fin</th>
+      <th>Duración</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<tbody>
+ <% @mpxj.all_tasks.each do |task| %>
+<% if task.duration.total === 0  %>
+ <tr>
+ <td><%= "#{task.name}"%> </td>
+ <td><%= "#{task.finish}"%> </td>
+ <td><%= "#{task.duration.total} días"%></td>
+</tr>
+ <% end  %>
+ 
+  <% end  %>
+  </tbody>
+ </table>
+
+
+ 
