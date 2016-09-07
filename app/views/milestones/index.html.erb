@@ -25,9 +25,9 @@
         <td><%= milestone.duedate %></td>
         <td><%= milestone.mainproject.try(:name) %></td>
         <td><%= milestone.user.try(:email) %></td>
-        <td><%= link_to 'Show', mainproject_milestone_path(@mainproject, milestone) %></td>
-        <td><%= link_to 'Edit', edit_mainproject_milestone_path(:mainproject_id=> @mainproject.id, :id=>milestone.id) %></td>
-        <td><%= link_to 'Destroy', mainproject_milestone_path(@mainproject, milestone), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', mainproject_milestone_path(@mainproject, milestone) %></td>
+        <td><%= link_to 'Editar', edit_mainproject_milestone_path(:mainproject_id=> @mainproject.id, :id=>milestone.id) %></td>
+        <td><%= link_to 'Borrar', mainproject_milestone_path(@mainproject, milestone), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,7 +36,14 @@
 <br>
 
 <%= link_to 'Crear Hito', new_mainproject_milestone_path %>
+
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
+
+<%= line_chart @milestone_day, discrete: true, xtitle: "Mes", ytitle: "Cantidad de hitos" %>
+
 </div>
+
 
 
  

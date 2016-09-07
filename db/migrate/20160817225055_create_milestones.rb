@@ -4,8 +4,8 @@ class CreateMilestones < ActiveRecord::Migration
       t.string :milestone
       t.string :type
       t.date :duedate
-      t.references :mainprojects, index: true, foreign_key: true
-      t.references :users, index: true, foreign_key: true
+      t.references :mainproject, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -1,12 +1,7 @@
  <%= "Existen #{@mpxj.all_tasks.size} tareas y #{@mpxj.all_resources.size} recursos en este proyecto" %>
 
  
- <br>
- <br>
- <%= "Se identificaron los siguientes hitos:" %>
-
- <br>
- <br>
+<h4> Se identificaron los siguientes hitos: </h4>
  
 <table>
   <thead>
@@ -19,17 +14,17 @@
   </thead>
 <tbody>
  <% @mpxj.all_tasks.each do |task| %>
-<% if task.duration.total === 0  %>
- <tr>
- <td><%= "#{task.name}"%> </td>
- <td><%= "#{task.finish}"%> </td>
- <td><%= "#{task.duration.total} días"%></td>
-</tr>
- <% end  %>
- 
-  <% end  %>
-  </tbody>
+    <% if task.duration.total === 0  %>
+     <tr>
+       <td><%= "#{task.name}"%> </td>
+       <td><%= "#{task.finish}"%> </td>
+       <td><%= "#{task.duration.total} días"%></td>
+    </tr>
+     <% end %> 
+  <% end %>
+</tbody>
  </table>
-
-
  
+<%= form_tag(process_milestones_mainproject_path, method: :post) do %>
+  <%= submit_tag "Guardar cambios" %> 
+<% end %>

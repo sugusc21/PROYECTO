@@ -2,28 +2,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Milestone:</strong>
+  <strong>Hito:</strong>
   <%= @milestone.milestone %>
 </p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>Tipo:</strong>
   <%= @milestone.projtype %>
 </p>
 
 <p>
-  <strong>Duedate:</strong>
+  <strong>Fecha Fin:</strong>
   <%= @milestone.duedate %>
 </p>
 
 <p>
-  <strong>Mainprojects:</strong>
+  <strong>Proyecto:</strong>
   <%= @mainproject.name %>
 </p>
 
 <p>
-  <strong>Users:</strong>
-  <%= @milestone.user.email %>
+  <strong>Usuario:</strong>
+  <%= @mainproject.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_mainproject_milestone_path(:mainproject_id=> @mainproject.id, :id=> @milestone.id) %> |

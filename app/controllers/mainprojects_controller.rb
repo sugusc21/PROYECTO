@@ -1,4 +1,5 @@
 class MainprojectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_mainproject, only: [:show, :edit, :update, :destroy]
 
   # GET /mainprojects
@@ -67,13 +68,19 @@ class MainprojectsController < ApplicationController
     @mainproject = Mainproject.find(params[:id])
     @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url) 
 
+    @mpxj.all_tasks.each do |task| 
+      if task.duration.total == 0 
+        @mainproject.milestones.build(milestone: task.name, projtype: "Pruebas", duedate: task.finish)
+      end
+    end
+    @mainproject.save
+    redirect_to @mainproject
   end
 
   def preview_milestones
     @mainproject = Mainproject.find(params[:id])
     @mainproject.attachment = mainproject_params[:attachment]
     @mainproject.save
-    @mainproject = Mainproject.find(params[:id])
     @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url)
     # @mpxj_mil = @mpxj.all_tasks.each.where(duration: "0")
     # @mpxj = MPXJ::Reader.read('public/' + @mainproject.attachment_url)

@@ -6,13 +6,14 @@ class MilestonesController < ApplicationController
   # GET /milestones.json
   def index
     @mainproject = Mainproject.find(params[:mainproject_id])
-    @milestones = Milestone.all
+    @milestones = Milestone.where(mainproject_id: @mainproject.id)
+    @milestone_day = Milestone.group_by_month(:duedate).where(mainproject_id: @mainproject.id).count
   end
 
   # GET /milestones/1
   # GET /milestones/1.json
   def show
-    @user = User.find(@milestone.users_id)
+    @user = User.find(@milestone.user_id)
   end
 
   # GET /milestones/new
@@ -31,7 +32,8 @@ class MilestonesController < ApplicationController
   def create
     @mainproject = Mainproject.find(params[:mainproject_id])
     @milestone = Milestone.new(milestone_params)
-    @milestone.users_id = current_user.id
+    @milestone.mainproject = @mainproject
+    @milestone.user_id = current_user.id
 
     respond_to do |format|
       if @milestone.save
@@ -81,6 +83,6 @@ class MilestonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def milestone_params
-      params.require(:milestone).permit(:milestone, :projtype, :duedate, :mainprojects_id, :users_id, :attachment)
+      params.require(:milestone).permit(:milestone, :projtype, :duedate, :attachment)
     end
 end
