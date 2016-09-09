@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'pg'
 gem 'chartkick'
 gem 'groupdate'
+gem 'puma'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-datepicker-rails'
 # Use SCSS for stylesheets
@@ -51,5 +53,11 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'capistrano', '3.6.1', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-ssh-doctor', require: false
 end
 

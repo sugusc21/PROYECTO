@@ -1,0 +1,31 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @message.description %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @message.messtype %>
+</p>
+
+<p>
+  <strong>Receptores:</strong>
+  <%= @message.receivers %>
+</p>
+
+<p>
+  <strong>Proyecto:</strong>
+  <%= @mainproject.name %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @mainproject.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_mainproject_message_path(:mainproject_id=> @mainproject.id, :id=> @message.id) %> |
+<%= link_to 'Back', mainproject_messages_path %>
+</div>

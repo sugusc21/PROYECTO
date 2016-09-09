@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
   resources :mainprojects do
+    resources :messages
+  end
+
+  # get 'messages/index'
+
+  # get 'messages/new'
+
+  # get 'messages/edit'
+
+  # get 'messages/show'
+
+  resources :mainprojects do
     resources :milestones
 
     member do 
