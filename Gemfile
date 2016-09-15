@@ -6,9 +6,11 @@ gem 'rails', '4.2.6'
 gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'pg'
+gem 'whenever'
 gem 'chartkick'
 gem 'groupdate'
 gem 'puma'
+
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap-datepicker-rails'
 # Use SCSS for stylesheets

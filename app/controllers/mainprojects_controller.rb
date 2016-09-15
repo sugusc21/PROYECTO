@@ -90,6 +90,10 @@ class MainprojectsController < ApplicationController
     # @mainproject.save
   end
 
+  def process_messages
+    @message = Message.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_mainproject

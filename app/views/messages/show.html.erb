@@ -1,31 +1,33 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Título:</strong>
+  <%= @message.title %>
+</p>
 
 <p>
   <strong>Descripción:</strong>
   <%= @message.description %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Tipo:</strong>
   <%= @message.messtype %>
-</p>
+</p> -->
 
 <p>
-  <strong>Receptores:</strong>
+  <strong>Destinatario:</strong>
   <%= @message.receivers %>
 </p>
 
-<p>
-  <strong>Proyecto:</strong>
-  <%= @mainproject.name %>
-</p>
+<%= form_tag("", method: :get) do %>
+<%= hidden_field_tag :mensaje, 1%>
+  <%= submit_tag "Enviar E-Mail" %> 
+<% end %>
+<!-- <p>
+<%= link_to mainproject_message_path, class: "btn btn-primary active" do %><span class="glyphicon glyphicon-envelope"></span> Enviar<% end %>
+</p> -->
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @mainproject.user.email %>
-</p>
+<%= link_to 'Editar', edit_mainproject_message_path(:mainproject_id=> @mainproject.id, :id=> @message.id) %> |
+<%= link_to 'Atrás', mainproject_messages_path %>
 
-<%= link_to 'Edit', edit_mainproject_message_path(:mainproject_id=> @mainproject.id, :id=> @message.id) %> |
-<%= link_to 'Back', mainproject_messages_path %>
 </div>

@@ -1,4 +1,71 @@
-<%= form_for [@mainproject, @milestone] do |f| %>
- <%= f.text_area :tweet %>
- <%= f.submit :enviar %>
+<div class="container" style="max-width:500px">
+<%= form_for [@mainproject, @message] do |f| %>
+ <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+      <ul>
+        <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+ <% end %>
+
+ 
+<div class="field">
+ <%= f.label :messtype, "Tipo", :style=>"margin:0px" %><br>
+ <%= f.select :messtype, options_for_select(["Preparación Inicial", "Diseño", "Construcción", "Pruebas", "Capacitación", "Go-Live"]), {}, class: "dropdown", id:"tipo-mensaje" %>
+</div>
+ <br>
+
+<div class="field">
+ <%= f.label :Título, :style=>"margin:0px" %><br>
+ <%= f.text_field :title %>
+ </div>
+ <br>
+
+ <div class="field">
+ <%= f.label :description, "Descripción del Mensaje", :style=>"margin:0px" %><br>
+ <%= f.text_area :description ,:id=>"description"%>
+
+ 
+ </div>
+ 
+ <br>
+ <div class="field">
+ <%= f.label :Destinatarios, :style=>"margin:0px" %><br>
+ <%= f.email_field :receivers %>
+ </div>
+ <br>
+
+ <div class="field">
+ <%= f.submit :Crear %>
+ </div>
 <% end %>
+</div>
+
+<script>
+$("#tipo-mensaje").on('change', function(){
+var valor = $(this).val();
+switch (valor) {
+	case "Preparación Inicial":
+	$("#description").val("Queremos informarte que ha finalizado la etapa de Preparación Inicial. Queremos agradecerte por el esfuerzo realizado durante este período, y esperamos puedas acompañarnos en la etapa de Diseño.")
+	break;
+	case "Diseño":
+	$("#description").val("Queremos informarte que ha finalizado la etapa de Diseño. Queremos agradecerte por el esfuerzo realizado durante este período, y esperamos puedas acompañarnos en la etapa de Construcción.")
+	break;
+	case "Construcción":
+	$("#description").val("Queremos informarte que ha finalizado la etapa de Construcción. Queremos agradecerte por el esfuerzo realizado durante este período, y esperamos puedas acompañarnos en la etapa de Pruebas.")
+	break;
+	case "Pruebas":
+	$("#description").val("Queremos informarte que ha finalizado la etapa de Pruebas. Queremos agradecerte por el esfuerzo realizado durante este período, y esperamos puedas acompañarnos en la etapa de Capacitación.")
+	break;
+	case "Capacitación":
+	$("#description").val("Queremos informarte que ha finalizado la etapa de Capacitación. Queremos agradecerte por el esfuerzo realizado durante este período, y esperamos puedas acompañarnos en la etapa de Go-Live.")
+	break;
+	case "Go-Live":
+	$("#description").val("Queremos informarte que ha finalizado el proyecto de manera exitosa. Queremos agradecerte por el esfuerzo realizado durante este tiempo y te invitamos a que nos acompañes a una celebración de finalización.")
+	break;
+}
+})
+</script>

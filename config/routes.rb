@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :mainprojects do
     resources :messages
+    member do 
+      post 'process_messages'
+    end
+
   end
 
   # get 'messages/index'
