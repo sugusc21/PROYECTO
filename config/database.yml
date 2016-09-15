@@ -7,8 +7,8 @@
 default: &default
   adapter: postgresql
   pool: 5
-  username: agustincasal
-  password: agustincasal
+  username: ubuntu
+  password: ubuntu
   timeout: 5000
 
 development:
