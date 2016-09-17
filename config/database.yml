@@ -7,8 +7,6 @@
 default: &default
   adapter: postgresql
   pool: 5
-  username: ubuntu
-  password: ubuntu
   timeout: 5000
 
 development:
@@ -25,3 +23,5 @@ test:
 production:
   <<: *default
   database: swoptcha_production
+  username: ubuntu
+  password: ubuntu
