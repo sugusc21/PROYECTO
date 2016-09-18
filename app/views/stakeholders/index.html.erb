@@ -1,0 +1,40 @@
+<br>
+
+<div class="container">
+
+<h2>Stakeholders del Proyecto</h2>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Departamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @stakeholders.each do |stakeholder| %>
+      <tr>
+        <td><%= stakeholder.name %></td>
+        <td><%= stakeholder.jobtitle %></td>
+        <td><%= stakeholder.busarea %></td>
+        <td><%= link_to 'Mostrar', mainproject_stakeholder_path(@mainproject, stakeholder) %></td>
+        <td><%= link_to 'Editar', edit_mainproject_stakeholder_path(:mainproject_id=> @mainproject.id, :id=>stakeholder.id) %></td>
+        <td><%= link_to 'Borrar', mainproject_stakeholder_path(@mainproject, stakeholder), method: :delete, data: { confirm: 'Estás seguro de querer borrar?' } %></td>
+        <td><%= link_to mainproject_stakeholder_path(@mainproject, stakeholder), class: "btn btn-primary active" do %><span class="glyphicon glyphicon-list-alt"></span>  Encuesta<% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+ 
+</table>
+
+<br>
+
+<%= link_to 'Crear Stakeholder', new_mainproject_stakeholder_path %>
+
+</div>
+

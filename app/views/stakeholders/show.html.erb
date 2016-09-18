@@ -1,0 +1,21 @@
+<div class="container">
+<p>
+  <strong>Nombre:</strong>
+  <%= @stakeholder.name %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @stakeholder.jobtitle %>
+</p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @stakeholder.busarea %>
+</p>
+
+
+<%= link_to 'Editar', edit_mainproject_stakeholder_path(:mainproject_id=> @mainproject.id, :id=> @stakeholder.id) %> |
+<%= link_to 'Atrás', mainproject_stakeholders_path %>
+
+</div>
