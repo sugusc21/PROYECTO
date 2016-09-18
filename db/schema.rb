@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912224051) do
+ActiveRecord::Schema.define(version: 20160917130713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20160912224051) do
   add_index "milestones", ["mainproject_id"], name: "index_milestones_on_mainproject_id", using: :btree
   add_index "milestones", ["user_id"], name: "index_milestones_on_user_id", using: :btree
 
+  create_table "stakeholders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "jobtitle"
+    t.string   "busarea"
+    t.integer  "mainproject_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "stakeholders", ["mainproject_id"], name: "index_stakeholders_on_mainproject_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -75,4 +86,5 @@ ActiveRecord::Schema.define(version: 20160912224051) do
   add_foreign_key "messages", "mainprojects"
   add_foreign_key "milestones", "mainprojects"
   add_foreign_key "milestones", "users"
+  add_foreign_key "stakeholders", "mainprojects"
 end

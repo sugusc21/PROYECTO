@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  # get 'stakeholders/index'
+
+  # get 'stakeholders/new'
+
+  # get 'stakeholders/create'
+
+  # get 'stakeholders/edit'
+
+  # get 'stakeholders/destroy'
+
+  # get 'stakeholders/show'
+
+  resources :mainprojects do
+    resources :stakeholders
+    member do 
+      post 'process_stakeholders'
+    end
+
+  end
+
   resources :mainprojects do
     resources :messages
     member do 

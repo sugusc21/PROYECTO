@@ -26,7 +26,7 @@
         <td><%= message.receivers %></td>
         <td><%= link_to 'Mostrar', mainproject_message_path(@mainproject, message) %></td>
         <td><%= link_to 'Editar', edit_mainproject_message_path(:mainproject_id=> @mainproject.id, :id=>message.id) %></td>
-        <td><%= link_to 'Borrar', mainproject_message_path(@mainproject, message), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Borrar', mainproject_message_path(@mainproject, message), method: :delete, data: { confirm: 'Estás seguro de querer borrar?' } %></td>
       </tr>
     <% end %>
   </tbody>
